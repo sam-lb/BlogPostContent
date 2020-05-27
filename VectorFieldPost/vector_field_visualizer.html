@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Interactive Vector Fields</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+		<script src="vector_field_visualizer.js"></script>
+		<link rel="stylesheet" href="vector_field_visualizer.css"> 
+	</head>
+	
+	<body>
+		<div class="main-div">
+			<div id="gui-div">
+				<h2>Interactive Vector Field Visualizer</h2>
+				<a href="http://sambrunacini.com/downloads-and-interactive-content/">Back</a>
+				<hr/>
+				
+				<label for="function1">x component: </label>
+				<input type="text" id="function1" value="y"></input><br/>
+				<label for="function2">y component: </label>
+				<input type="text" id="function2" value="a-x"></input><br/>
+				<button onclick="handleSetVF();">Update graph</button>
+				<button onclick="handleThemeSwitch();">Switch theme</button><br/>
+				<label for="constant">a: </label>
+				<input type="range" id="constant" min="-6.28" max="6.28" step="0.01" value="0" oninput="constantOut.value=this.value;"></input>
+				<output id="constantOut">0</output><br/><br/>
+				
+				<input type="checkbox" id="vector-checkbox" checked>Show vectors</input>
+				<input type="checkbox" id="flowline-checkbox">Show flowlines (might run slowly)</input>
+				
+				<br/><br/>
+				
+				<label for="vector-density">Vector density: </label>
+				<input type="range" id="vector-density" min="0.5" max="2.5" step="0.5" value="1.5"></input><br/>
+				<label for="vector-scale">Vector length scale factor: </label>
+				<input type="range" id="vector-scale" min="1" max="10" step="1" value="8"></input><br/><br/>
+				
+				<button onclick="toggleInstructions();">Show/Hide Instructions</button>
+				<div id="instructions-div">
+					<hr/>
+					<h3>Instructions</h3>
+					<p>Vector density controls how many vectors per unit, and vector scale controls how much each vector
+					is scaled down from its true magnitude.</p>
+					<p>You can use "a" as a constant in the equations and use the slider to change its value.</p>
+					<hr/>
+				</div>
+			</div>
+		
+			<div id="canvas-div"></div>
+		</div>
+	</body>
+	
+</html>
