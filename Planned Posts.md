@@ -20,3 +20,5 @@
 3. Web version of the real time 4D canvas complex plotter
 4. Charge/magnetism field visualizer
 5. Crossy road spinoff
+6. VectorGraph2D
+7. ContourMG3
